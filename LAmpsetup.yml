@@ -1,0 +1,18 @@
+---
+- hosts: linux
+  tasks:
+  -  name: Create user (egoad/RubberDuck!)
+    user: 
+      name: egoad
+      password: RubberDuck!     #wont work
+    become: yes
+  - name: Create second user (ddvevito/GetShorty!)
+    become: yes
+    user:
+      name: ddvito
+      password: "{{ 'GetShorty!' | password_hash('sha512') }}"
+  - name: Create third user (webAdmin/encrypted password)
+    become: yes
+    user:
+      name: webAdmin
+      password:

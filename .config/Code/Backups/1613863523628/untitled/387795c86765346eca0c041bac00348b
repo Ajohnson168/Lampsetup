@@ -1,0 +1,47 @@
+untitled:Untitled-2
+---
+- hosts: linux
+  tasks:
+  -  name: Create user (egoad/RubberDuck!)
+     user: 
+      name: egoad
+      password: RubberDuck!     #wont work
+    become: yes
+  - name: Create second user (ddvevito/GetShorty!)
+    become: yes
+    user:
+      name: ddvito
+      password: "{{ 'GetShorty!' | password_hash('sha512') }}"
+  - name: Create third user (webAdmin/encrypted password)
+    become: yes
+    user:
+      name: webAdmin
+      password: '$6$sR3GN7U9w64EfL.j$1Pu4E06KXboDQc9jywt6dnis4Goo/L.SU3OKE9JwO19QB8UN1NwTdWVz5h82PROFxpAP8eMrplE2rivJvmDuE.'
+
+-  hosts: db 
+  tasks:
+  - name: UnInstall MariaDB
+    become: yes
+    apt: 
+      name: mariadb-server
+      state: absent
+  - name: disable MariaDB (set to autostart)
+    become: yes
+    service:
+      name: mariadb
+      enabled: no
+  - name: Stop MariaDB
+    become: yes
+    service:
+      name: mariadb
+      state: stopped
+
+
+- hosts: web  
+  tasks:
+  - name: UnInstall Apache
+    become: yes
+    apt: name=apache2 state=absent
+  - name: Stop Apache
+    become: yes
+    service: name=apache2 state=stopped enabled=no

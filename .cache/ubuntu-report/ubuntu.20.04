@@ -1,0 +1,79 @@
+{
+  "Version": "20.04",
+  "OEM": {
+    "Vendor": "Microsoft Corporation",
+    "Product": "Virtual Machine",
+    "Family": ""
+  },
+  "BIOS": {
+    "Vendor": "American Megatrends Inc.",
+    "Version": "090007"
+  },
+  "CPU": {
+    "OpMode": "32-bit, 64-bit",
+    "CPUs": "1",
+    "Threads": "1",
+    "Cores": "1",
+    "Sockets": "1",
+    "Vendor": "GenuineIntel",
+    "Family": "6",
+    "Model": "79",
+    "Stepping": "1",
+    "Name": "Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz",
+    "Hypervisor": "Microsoft",
+    "VirtualizationType": "full"
+  },
+  "Arch": "amd64",
+  "GPU": [
+    {
+      "Vendor": "1414",
+      "Model": "5353"
+    }
+  ],
+  "RAM": 1.9,
+  "Disks": [
+    107.4
+  ],
+  "Partitions": [
+    102.2,
+    0.5
+  ],
+  "Screens": [
+    {
+      "Size": "0mmx0mm",
+      "Resolution": "1152x864",
+      "Frequency": "0.00"
+    }
+  ],
+  "Autologin": false,
+  "LivePatch": false,
+  "Session": {
+    "DE": "ubuntu:GNOME",
+    "Name": "ubuntu",
+    "Type": "x11"
+  },
+  "Language": "en_US",
+  "Timezone": "America/Los_Angeles",
+  "Install": {
+    "Media": "Ubuntu 20.04.1 LTS \"Focal Fossa\" - Release amd64 (20200731)",
+    "Type": "GTK",
+    "OEM": false,
+    "PartitionMethod": "use_device",
+    "DownloadUpdates": false,
+    "Language": "en",
+    "Minimal": false,
+    "RestrictedAddons": false,
+    "Stages": {
+      "0": "language",
+      "10": "language",
+      "45": "console_setup",
+      "59": "prepare",
+      "100": "partman",
+      "105": "start_install",
+      "128": "timezone",
+      "141": "usersetup",
+      "162": "user_done",
+      "915": "done"
+    }
+  }
+}
